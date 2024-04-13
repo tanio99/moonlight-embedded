@@ -163,6 +163,8 @@ int aml_setup(int videoFormat, int width, int height, int redrawRate, void* cont
         return -3;
       }
 
+      write_file("/sys/class/graphics/fb0/blank", "1");
+
       pthread_create(&displayThread, NULL, aml_display_thread, NULL);
     }
   }
